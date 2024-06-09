@@ -8,7 +8,7 @@ public:
     Nodo* der;
     int altura;
 
-    Nodo(int val) : dato(val), izq(NULL), der(NULL), altura(1) {}
+    Nodo(int val) : dato(val), izq(NULL), der(NULL), altura(0) {}
 };
 
 class AVL {
@@ -16,7 +16,7 @@ private:
     Nodo* raiz;
 
     int altura(Nodo* N) {
-        return (N == NULL) ? 0 : N->altura;
+        return (N == NULL) ? -1 : N->altura;
     }
 
     int max(int a, int b) {
@@ -156,14 +156,14 @@ private:
     void inOrder(Nodo* raiz) {
         if (raiz != NULL) {
             inOrder(raiz->izq);
-            cout << raiz->dato << " ";
+            std::cout << raiz->dato << " ";
             inOrder(raiz->der);
         }
     }
 
     void preOrder(Nodo* raiz) {
         if (raiz != NULL) {
-            cout << raiz->dato << " ";
+            std::cout << raiz->dato << " ";
             preOrder(raiz->izq);
             preOrder(raiz->der);
         }
@@ -173,7 +173,7 @@ private:
         if (raiz != NULL) {
             postOrder(raiz->izq);
             postOrder(raiz->der);
-            cout << raiz->dato << " ";
+            std::cout << raiz->dato << " ";
         }
     }
 
@@ -194,16 +194,16 @@ public:
 
     void inOrder() {
         inOrder(raiz);
-        cout << endl;
+        std::cout << std::endl;
     }
 
     void preOrder() {
         preOrder(raiz);
-        cout << endl;
+        std::cout << std::endl;
     }
 
     void postOrder() {
         postOrder(raiz);
-        cout << endl;
+        std::cout << std::endl;
     }
 };
